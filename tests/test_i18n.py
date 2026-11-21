@@ -78,6 +78,18 @@ def test_ui_strings_follow_the_selected_locale() -> None:
     assert 'localeCompare(b.name, "en")' in english["shopping"]
 
 
+@pytest.mark.parametrize(
+    ("locale", "title", "old_title"),
+    [("en", "Cookbook", "My Cookbook"), ("he", "ספר מתכונים", "ספר המתכונים שלי")],
+)
+def test_app_title_names_the_application_cookbook(locale: str, title: str, old_title: str) -> None:
+    """Issue #5: the app is called "Cookbook", not "My Cookbook", in the tab title and heading."""
+    document = _pages(locale)["cookbook"]
+    assert f"<title>{title}</title>" in document
+    assert f"<h1>{title}</h1>" in document
+    assert old_title not in document
+
+
 def test_unknown_recipe_type_is_stored_data_and_not_localized() -> None:
     for locale in LOCALES:
         assert 'const unknownType = "לא ידוע";' in _pages(locale)["cookbook"]

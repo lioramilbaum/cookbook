@@ -15,7 +15,7 @@ from dataclasses import dataclass
 DEFAULT_LOCALE = "en"
 
 _HEBREW: dict[str, str] = {
-    "app_title": "ספר המתכונים שלי",
+    "app_title": "ספר מתכונים",
     "saved": "נשמר.",
     "saving": "שומר…",
     # Cookbook page.
@@ -148,7 +148,7 @@ _HEBREW: dict[str, str] = {
 }
 
 _ENGLISH: dict[str, str] = {
-    "app_title": "My Cookbook",
+    "app_title": "Cookbook",
     "saved": "Saved.",
     "saving": "Saving…",
     # Cookbook page.
